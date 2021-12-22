@@ -1,0 +1,35 @@
+Array destructuring
+
+const colors = ['red', 'green']
+undefined
+colors[0]
+'red'
+colors[1]
+'green'
+const redColor = colors[0]
+undefined
+const greenColor = colors[1]
+undefined
+const [firstElement, secondElement] = colors;
+undefined
+firstElement
+'red'
+secondElement
+'green'
+
+// another way in which to do this is to.....
+
+const things = useState(null)
+const activeIndex = things[0]
+const setActiveIndex = things[1]
+
+// this is easier
+  const [activeIndex, setActiveIndex] = useState(31);
+
+// to reference we call
+activeIndex
+
+// to update state we call 
+setActiveIndex(10)
+
+// note that in order to initialise, reference and update state you must repeat the calls multiple times
