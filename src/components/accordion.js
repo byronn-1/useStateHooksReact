@@ -5,6 +5,7 @@ import React, { useState } from "react";
 const Accordion = ({ items }) => {
 
   const [activeIndex, setActiveIndex] = useState(null);
+  const [countIndex, setCountIndex] = useState(0);
 
   const onTitleClick = (index) => {
     if (index === activeIndex) {
@@ -14,9 +15,15 @@ const Accordion = ({ items }) => {
     }
   }
 
+  const onButtonClick = () => {
+    const count = 1 + countIndex;
+
+    setCountIndex(count)
+  }
+
+
   const renderedItems = items.map((item, index) => {
     const active = index === activeIndex ? 'active' : '';
-
     return (
       <React.Fragment key={item.title}>
         <div
@@ -36,6 +43,10 @@ const Accordion = ({ items }) => {
     <div className="ui styled accordion">
       {renderedItems}
       <h1>{activeIndex}</h1>
+      <button
+        onClick={() => onButtonClick()}
+      >click me</button>
+      <h1>Current Count: {countIndex}</h1>
     </div>
   )
 };
