@@ -1,0 +1,25 @@
+there are three ways to use await syntax in a useEffect hook
+
+a variable that is imediatley called
+  useEffect(() => {
+    const search = async () => {
+      await axios.get('asdas')
+    }
+
+    search();
+  }, [term])
+
+use an IFFE
+    useEffect(() => {
+    (async () => {
+      await axios.get('asdas')
+  })();
+    }, [term])
+
+or using a promise 
+    useEffect(() => {
+ axios.get('asdas')
+ .then(() => {
+   console.log(response.data)
+ });
+    }, [term])
