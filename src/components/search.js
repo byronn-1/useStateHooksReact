@@ -17,17 +17,27 @@ const Search = () => {
           format: 'json',
           srsearch: term,
         },
+
       });
 
       setResults(data.query.search);
     };
 
-    const timeoutId = setTimeout(() => {
-      if (term) {
-        search();
-      }
-    }, 500)
-  }, [term]);
+    if (term && !results.length) {
+      search()
+    } else {
+      const timeoutId = setTimeout(() => {
+        if (term) {
+          search();
+        }
+      }, 500);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [term, results.length]);
+
   //second argument
   //[] run at initial render
   //...nothing... (no argument) run at initial render => run after every rerender
