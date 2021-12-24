@@ -18,12 +18,27 @@ const items = [
   },
 ]
 
+const options = [
+  {
+    label: 'The color red',
+    value: 'red'
+  },
+  {
+    label: 'The color green',
+    value: 'green'
+  },
+  {
+    label: 'A shade of blue',
+    value: 'blue'
+  }
+]
+
 export default () => {
   return (
     <div>
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
-      <Dropdown />
+      <Dropdown options={options} />
     </div >
   )
 };
